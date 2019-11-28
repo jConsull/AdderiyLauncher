@@ -1,0 +1,52 @@
+{
+  "name": "adderiylauncher",
+  "version": "1.0.1",
+  "productName": "Adderiy Launcher",
+  "description": "Minecraft Launcher",
+  "author": "Edward Nemirovskiy (https://adderiy.com/)",
+  "license": "UNLICENSED",
+  "homepage": "https://adderiy.com/",
+  "bugs": {
+    "url": "https://adderiy.com/"
+  },
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "cilinux": "node build.js WINDOWS && node build.js LINUX",
+    "cidarwin": "node build.js MAC",
+    "dist": "cross-env ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true node build.js",
+    "dist:win": "npm run dist -- WINDOWS",
+    "dist:mac": "npm run dist -- MAC",
+    "dist:linux": "npm run dist -- LINUX",
+    "lint": "eslint --config .eslintrc.json ."
+  },
+  "engines": {
+    "node": "12.x.x"
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.13",
+    "async": "^3.1.0",
+    "discord-rpc": "3.1.0",
+    "ejs": "^2.7.1",
+    "ejs-electron": "^2.0.3",
+    "electron-updater": "^4.1.2",
+    "fs-extra": "^8.1.0",
+    "github-syntax-dark": "^0.5.0",
+    "jquery": "^3.4.1",
+    "request": "^2.88.0",
+    "semver": "^6.3.0",
+    "tar-fs": "^2.0.0",
+    "winreg": "^1.2.4"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3",
+    "electron": "^6.1.5",
+    "electron-builder": "^21.2.0",
+    "eslint": "^6.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/warfare644/adderiylauncher.git"
+  }
+}
