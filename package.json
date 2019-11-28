@@ -1,6 +1,6 @@
 {
   "name": "adderiylauncher",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "productName": "Adderiy Launcher",
   "description": "Minecraft Launcher",
   "author": "Edward Nemirovskiy (https://adderiy.com/)",
@@ -47,6 +47,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/warfare644/adderiylauncher.git"
+    "url": "git+https://github.com/warfare644/AdderiyLauncher.git"
   }
 }

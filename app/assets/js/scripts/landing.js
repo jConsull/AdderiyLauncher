@@ -384,7 +384,7 @@ function asyncSystemScan(mcVersion, launchAfter = true){
                 // User will have to follow the guide to install Java.
                 setOverlayContent(
                     'Неожиданная проблема:<br>Ошибка загрузки Java',
-                    'Unfortunately we\'ve encountered an issue while attempting to install Java. You will need to manually install a copy. Please check out our <a href="https://github.com/dscalzi/HeliosLauncher/wiki">Troubleshooting Guide</a> for more details and instructions.',
+                    'К сожалению мы\'При попытке установить Java возникла проблема. Вам нужно будет вручную установить копию. Пожалуйста, проверьте наш <a href="https://github.com/warfare644/AdderiyLauncher/wiki">Руководство по устранению неполадок</a> для более подробной информации и инструкций.',
                     'Я понимаю'
                 )
                 setOverlayHandler(() => {
@@ -483,7 +483,7 @@ function dlAsync(login = true){
 
     if(login) {
         if(ConfigManager.getSelectedAccount() == null){
-            loggerLanding.error('Вы должны войти в аккаунтt.')
+            loggerLanding.error('Вы должны войти в аккаунт.')
             return
         }
     }
@@ -677,7 +677,7 @@ function dlAsync(login = true){
                     data = data.trim()
                     if(data.indexOf('Не удалось найти или загрузить основной class net.minecraft.launchwrapper.Launch') > -1){
                         loggerLaunchSuite.error('Запуск игры не удался, LaunchWrapper не был загружен должным образом.')
-                        showLaunchFailure('Error During Launch', 'The main file, LaunchWrapper, failed to download properly. As a result, the game cannot launch.<br><br>To fix this issue, temporarily turn off your antivirus software and launch the game again.<br><br>If you have time, please <a href="https://github.com/dscalzi/HeliosLauncher/issues">submit an issue</a> and let us know what antivirus software you use. We\'ll contact them and try to straighten things out.')
+                        showLaunchFailure('Ошибка при загрузке', 'Не удалось загрузить основной файл, LaunchWrapper. В результате игра не может быть запущена. <br> <br> Чтобы устранить эту проблему, временно отключите антивирусное программное обеспечение и снова запустите игру.<br><br>Если у вас есть время, пожалуйста <a href="https://github.com/warfare644/AdderiyLauncher/issues">задайте вопрос</a> и дайте нам знать, какое антивирусное программное обеспечение вы используете. Мы свяжемся с ними и попробуем разобраться.')
                     }
                 }
 
@@ -689,7 +689,7 @@ function dlAsync(login = true){
                     proc.stdout.on('data', tempListener)
                     proc.stderr.on('data', gameErrorListener)
 
-                    setLaunchDetails('Выполнено. Наслаждайся сервером!')
+                    setLaunchDetails('Выполнено. Запуск!')
 
                     // Init Discord Hook
                     const distro = DistroManager.getDistribution()
@@ -706,8 +706,8 @@ function dlAsync(login = true){
 
                 } catch(err) {
 
-                    loggerLaunchSuite.error('Error during launch', err)
-                    showLaunchFailure('Error During Launch', 'Please check the console (CTRL + Shift + i) for more details.')
+                    loggerLaunchSuite.error('Ошибка при загрузке', err)
+                    showLaunchFailure('Ошибка при загрузке', 'Please check the console (CTRL + Shift + i) for more details.')
 
                 }
             }
@@ -728,7 +728,7 @@ function dlAsync(login = true){
         serv = data.getServer(ConfigManager.getSelectedServer())
         aEx.send({task: 'execute', function: 'validateEverything', argsArr: [ConfigManager.getSelectedServer(), DistroManager.isDevMode()]})
     }, (err) => {
-        loggerLaunchSuite.log('Error while fetching a fresh copy of the distribution index.', err)
+        loggerLaunchSuite.log('Ошибка при получении свежей копии индекса распространения.', err)
         refreshDistributionIndex(false, (data) => {
             onDistroRefresh(data)
             serv = data.getServer(ConfigManager.getSelectedServer())
