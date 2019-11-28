@@ -110,7 +110,7 @@ function showFatalStartupError(){
             document.getElementById('overlayContainer').style.background = 'none'
             setOverlayContent(
                 'Неустранимая ошибка: невозможно загрузить индекс распределения',
-                'A connection could not be established to our servers to download the distribution index. No local copies were available to load. <br><br>The distribution index is an essential file which provides the latest server information. The launcher is unable to start without it. Ensure you are connected to the internet and relaunch the application.',
+                'Не удалось установить соединение с нашими серверами для загрузки индекса распространения. No local copies were available to load. <br><br>The distribution index is an essential file which provides the latest server information. The launcher is unable to start without it. Ensure you are connected to the internet and relaunch the application.',
                 'Закрыть'
             )
             setOverlayHandler(() => {
@@ -324,7 +324,7 @@ async function validateSelectedAccount(){
             const accLen = Object.keys(ConfigManager.getAuthAccounts()).length
             setOverlayContent(
                 'Не удалось обновить логин',
-                `We were unable to refresh the login for <strong>${selectedAcc.displayName}</strong>. Please ${accLen > 0 ? 'select another account or ' : ''} login again.`,
+                `Нам не удалось обновить логин для <strong>${selectedAcc.displayName}</strong>. Пожалуйста ${accLen > 0 ? 'выберите другой аккаунт или ' : ''} войдите снова.`,
                 'Логин',
                 'Выберите другой аккаунт'
             )

@@ -97,7 +97,7 @@ exports.status = function(){
             function(error, response, body){
 
                 if(error || response.statusCode !== 200){
-                    logger.warn('Unable to retrieve Mojang status.')
+                    logger.warn('Unable to retrieve Adderiy status.')
                     logger.debug('Error while retrieving Adderiy statuses:', error)
                     //reject(error || response.statusCode)
                     for(let i=0; i<statuses.length; i++){
@@ -160,7 +160,7 @@ exports.authenticate = function(username, password, clientToken, requestUser = t
                     if(response.statusCode === 200){
                         resolve(body)
 						console.log(body)
-						logger.log('DATA-BODY:', JSON.stringify(body))
+						//logger.log('DATA-BODY:', JSON.stringify(body))
                     } else {
                         reject(body || {code: 'ENOTFOUND'})
                     }
