@@ -21,7 +21,7 @@ function onDistroLoad(data){
         
         // Resolve the selected server if its value has yet to be set.
         if(ConfigManager.getSelectedServer() == null || data.getServer(ConfigManager.getSelectedServer()) == null){
-            logger.log('Determining default selected server..')
+            logger.log('Определение выбранного по умолчанию сервера..')
             ConfigManager.setSelectedServer(data.getMainServer().getID())
             ConfigManager.save()
         }
@@ -39,18 +39,18 @@ DistroManager.pullRemote().then((data) => {
     logger.log('Не удалось загрузить индекс распределения.')
     logger.error(err)
 
-    logger.log('Attempting to load an older version of the distribution index.')
+    logger.log('Попытка загрузить более старую версию индекса распределения.')
     // Try getting a local copy, better than nothing.
     DistroManager.pullLocal().then((data) => {
-        logger.log('Successfully loaded an older version of the distribution index.')
+        logger.log('Успешно загружена старая версия индекса распределения.')
 
         onDistroLoad(data)
 
 
     }).catch((err) => {
 
-        logger.log('Failed to load an older version of the distribution index.')
-        logger.log('Application cannot run.')
+        logger.log('Не удалось загрузить более старую версию индекса распространения.')
+        logger.log('Приложение не может быть запущено.')
         logger.error(err)
 
         onDistroLoad(null)
@@ -62,8 +62,8 @@ DistroManager.pullRemote().then((data) => {
 // Clean up temp dir incase previous launches ended unexpectedly. 
 fs.remove(path.join(os.tmpdir(), ConfigManager.getTempNativeFolder()), (err) => {
     if(err){
-        logger.warn('Error while cleaning natives directory', err)
+        logger.warn('Ошибка при очистке директории natives', err)
     } else {
-        logger.log('Cleaned natives directory.')
+        logger.log('Почистил каталог.')
     }
 })

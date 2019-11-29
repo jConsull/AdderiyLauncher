@@ -1,7 +1,7 @@
 /**
- * Mojang
+ * Adderiy
  * 
- * This module serves as a minimal wrapper for Mojang's REST api.
+ * This module serves as a minimal wrapper for Adderiy's REST api.
  * 
  * @module mojang
  */
@@ -18,7 +18,7 @@ const minecraftAgent = {
 const authpath = 'https://adderiy.com/api'
 const statuses = [
     {
-        service: 'https://adderiy.com/api/session',
+        service: 'https://adderiy.com/api/session-profile',
         status: 'grey',
         name: 'Multiplayer Session Service',
         essential: true
@@ -97,8 +97,8 @@ exports.status = function(){
             function(error, response, body){
 
                 if(error || response.statusCode !== 200){
-                    logger.warn('Unable to retrieve Adderiy status.')
-                    logger.debug('Error while retrieving Adderiy statuses:', error)
+                    logger.warn('Невозможно получить статус Adderiy.')
+                    logger.debug('Ошибка при получении статусов Adderiy:', error)
                     //reject(error || response.statusCode)
                     for(let i=0; i<statuses.length; i++){
                         statuses[i].status = 'grey'
@@ -122,7 +122,7 @@ exports.status = function(){
 }
 
 /**
- * Authenticate a user with their Mojang credentials.
+ * Authenticate a user with their Adderiy credentials.
  * 
  * @param {string} username The user's username, this is often an email.
  * @param {string} password The user's password.
@@ -154,7 +154,7 @@ exports.authenticate = function(username, password, clientToken, requestUser = t
 				//logger.log('DATA:', JSON.stringify(response))
 				//logger.log('DATA-BODY:', JSON.stringify(body))
                 if(error){
-                    logger.error('Error during authentication.', error)
+                    logger.error('Ошибка во время аутентификации.', error)
                     reject(error)
                 } else {
                     if(response.statusCode === 200){
@@ -190,7 +190,7 @@ exports.validate = function(accessToken, clientToken){
             },
             function(error, response, body){
                 if(error){
-                    logger.error('Error during validation.', error)
+                    logger.error('Ошибка во время проверки.', error)
                     reject(error)
                 } else {
                     if(response.statusCode === 403){
@@ -225,7 +225,7 @@ exports.invalidate = function(accessToken, clientToken){
             },
             function(error, response, body){
                 if(error){
-                    logger.error('Error during invalidation.', error)
+                    logger.error('Ошибка при аннулировании.', error)
                     reject(error)
                 } else {
                     if(response.statusCode === 204){
@@ -262,7 +262,7 @@ exports.refresh = function(accessToken, clientToken, requestUser = true){
             },
             function(error, response, body){
                 if(error){
-                    logger.error('Error during refresh.', error)
+                    logger.error('Ошибка при обновлении.', error)
                     reject(error)
                 } else {
                     if(response.statusCode === 200){

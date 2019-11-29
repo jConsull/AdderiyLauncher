@@ -8,26 +8,8 @@
  ******************************************************************************/
 
 @font-face {
-    font-family: 'Avenir Book';
-    src: url('../fonts/Avenir-Book.ttf');
-}
-
-@font-face {
-    font-family: 'Montserrat Light';
-    src: url('../fonts/Avenir-Medium.ttf');
-}
-
-@font-face {
     font-family: 'Ringbearer';
     src: url('../fonts/Ringbearer.ttf');
-}
-
-
-
-
-@font-face {
-    font-family: 'Montserrat Book';
-    src: url('../fonts/Montserrat-Book.ttf');
 }
 
 @font-face {

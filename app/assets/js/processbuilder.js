@@ -81,7 +81,7 @@ class ProcessBuilder {
             loggerMCstderr.log(data)
         })
         child.on('close', (code, signal) => {
-            logger.log('Exited with code', code)
+            logger.log('Ошибка с кодом', code)
             fs.remove(tempNativePath, (err) => {
                 if(err){
                     logger.warn('Ошибка при удалении временного каталога', err)

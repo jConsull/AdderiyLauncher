@@ -18,7 +18,7 @@ const loggerSuccess = LoggerUtil('%c[AuthManager]', 'color: #209b07; font-weight
 // Functions
 
 /**
- * Add an account. This will authenticate the given credentials with Mojang's
+ * Add an account. This will authenticate the given credentials with Adderiy's
  * authserver. The resultant data will be stored as an auth account in the
  * configuration database.
  * 
@@ -86,17 +86,17 @@ exports.validateSelected = async function(){
             ConfigManager.updateAuthAccount(current.uuid, session.accessToken)
             ConfigManager.save()
         } catch(err) {
-            logger.debug('Error while validating selected profile:', err)
+            logger.debug('Ошибка при проверке выбранного профиля:', err)
             if(err && err.error === 'ForbiddenOperationException'){
                 // What do we do?
             }
-            logger.log('Account access token is invalid.')
+            logger.log('Неверный токен доступа к аккаунту.')
             return false
         }
-        loggerSuccess.log('Account access token validated.')
+        loggerSuccess.log('Токен доступа к аккаунту подтвержден.')
         return true
     } else {
-        loggerSuccess.log('Account access token validated.')
+        loggerSuccess.log('Токен доступа к аккаунту подтвержден.')
         return true
     }
 }
