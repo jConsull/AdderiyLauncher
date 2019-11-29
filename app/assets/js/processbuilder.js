@@ -219,7 +219,7 @@ class ProcessBuilder {
      */
     constructModList(type, mods, save = false){
         const modList = {
-            repositoryRoot: ((type === 'forge' && this._requiresAbsolute()) ? 'absolute:' : 'absolute:') + path.join(this.commonDir, 'modstore')
+            repositoryRoot: ((type === 'forge' && this._requiresAbsolute()) ? 'absolute:' : '') + path.join(this.commonDir, 'modstore')
         }
 
         const ids = []
