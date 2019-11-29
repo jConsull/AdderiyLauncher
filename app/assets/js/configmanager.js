@@ -144,8 +144,8 @@ exports.load = function(){
             doValidate = true
         } catch (err){
             logger.error(err)
-            logger.log('Configuration file contains malformed JSON or is corrupt.')
-            logger.log('Generating a new configuration file.')
+            logger.log('Файл конфигурации содержит искаженный JSON или поврежден.')
+            logger.log('Генерация нового файла конфигурации.')
             fs.ensureDirSync(path.join(configPath, '..'))
             config = DEFAULT_CONFIG
             exports.save()
@@ -155,7 +155,7 @@ exports.load = function(){
             exports.save()
         }
     }
-    logger.log('Successfully Loaded')
+    logger.log('Успешно загружен')
 }
 
 /**

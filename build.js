@@ -49,7 +49,7 @@ builder.build({
             maintainer: 'Edward Nemirovskiy',
             vendor: 'Edward Nemirovskiy',
             synopsis: 'Minecraft Launcher',
-            description: 'Custom launcher which allows users to join modded servers. All mods, configurations, and updates are handled automatically.',
+            description: 'Пользовательский лаунчер, позволяющий пользователям присоединяться к моддированным серверам.',
             category: 'Game'
         },
         compression: 'maximum',

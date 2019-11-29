@@ -1,13 +1,13 @@
 {
   "name": "adderiylauncher",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "productName": "Adderiy Launcher",
   "description": "Minecraft Launcher",
   "author": "Edward Nemirovskiy (https://adderiy.com/)",
   "license": "UNLICENSED",
-  "homepage": "https://adderiy.com/",
+  "homepage": "https://github.com/warfare644/AdderiyLauncher",
   "bugs": {
-    "url": "https://adderiy.com/"
+    "url": "https://github.com/warfare644/AdderiyLauncher/issues"
   },
   "private": true,
   "main": "index.js",

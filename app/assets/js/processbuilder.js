@@ -57,7 +57,7 @@ class ProcessBuilder {
             args = args.concat(this.constructModArguments(modObj.fMods))
         }
 
-        logger.log('Launch Arguments:', args)
+        logger.log('Аргументы запуска:', args)
 
         const child = child_process.spawn(ConfigManager.getJavaExecutable(), args, {
             cwd: this.gameDir,
@@ -84,9 +84,9 @@ class ProcessBuilder {
             logger.log('Exited with code', code)
             fs.remove(tempNativePath, (err) => {
                 if(err){
-                    logger.warn('Error while deleting temp dir', err)
+                    logger.warn('Ошибка при удалении временного каталога', err)
                 } else {
-                    logger.log('Temp dir deleted successfully.')
+                    logger.log('Temp dir успешно удален.')
                 }
             })
         })
@@ -219,7 +219,7 @@ class ProcessBuilder {
      */
     constructModList(type, mods, save = false){
         const modList = {
-            repositoryRoot: ((type === 'forge' && this._requiresAbsolute()) ? 'absolute:' : '') + path.join(this.commonDir, 'modstore')
+            repositoryRoot: ((type === 'forge' && this._requiresAbsolute()) ? 'absolute:' : 'absolute:') + path.join(this.commonDir, 'modstore')
         }
 
         const ids = []
@@ -438,7 +438,7 @@ class ProcessBuilder {
                             val = args[i].replace(argDiscovery, tempNativePath)
                             break
                         case 'launcher_name':
-                            val = args[i].replace(argDiscovery, 'Helios-Launcher')
+                            val = args[i].replace(argDiscovery, 'Adderiy-Launcher')
                             break
                         case 'launcher_version':
                             val = args[i].replace(argDiscovery, this.launcherVersion)
@@ -635,7 +635,7 @@ class ProcessBuilder {
                         if(!shouldExclude){
                             fs.writeFile(path.join(tempNativePath, fileName), zipEntries[i].getData(), (err) => {
                                 if(err){
-                                    logger.error('Error while extracting native library:', err)
+                                    logger.error('Ошибка при извлечении нативной библиотеки:', err)
                                 }
                             })
                         }

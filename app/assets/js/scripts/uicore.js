@@ -11,8 +11,8 @@ const isDev                                  = require('./assets/js/isdev')
 const LoggerUtil                             = require('./assets/js/loggerutil')
 
 const loggerUICore             = LoggerUtil('%c[UICore]', 'color: #000668; font-weight: bold')
-const loggerAutoUpdater        = LoggerUtil('%c[AutoUpdater]', 'color: #000668; font-weight: bold')
-const loggerAutoUpdaterSuccess = LoggerUtil('%c[AutoUpdater]', 'color: #209b07; font-weight: bold')
+const loggerAutoUpdater        = LoggerUtil('%c[Автообновление]', 'color: #000668; font-weight: bold')
+const loggerAutoUpdaterSuccess = LoggerUtil('%c[Автообновление]', 'color: #209b07; font-weight: bold')
 
 // Log deprecation and process warnings.
 process.traceProcessWarnings = true
@@ -26,7 +26,7 @@ window.eval = global.eval = function () {
 
 // Display warning when devtools window is opened.
 remote.getCurrentWebContents().on('devtools-opened', () => {
-    console.log('%cThe console is dark and full of terrors.', 'color: white; -webkit-text-stroke: 4px #a02d2a; font-size: 60px; font-weight: bold')
+    console.log('%cКонсоль темная и полная ужасов.', 'color: white; -webkit-text-stroke: 4px #a02d2a; font-size: 60px; font-weight: bold')
     console.log('%cIf you\'ve been told to paste something here, you\'re being scammed.', 'font-size: 16px')
     console.log('%cUnless you know exactly what you\'re doing, close this window.', 'font-size: 16px')
 })
@@ -49,7 +49,7 @@ if(!isDev){
                 loggerAutoUpdaterSuccess.log('Доступно новое обновление', info.version)
                 
                 if(process.platform === 'darwin'){
-                    info.darwindownload = `https://adderiy.com/uploads/releases/v${info.version}/adderiylauncher-${info.version}.dmg`
+                    info.darwindownload = `https://github.com/warfare644/AdderiyLauncher/releases/download/v${info.version}/adderiylauncher-${info.version}.dmg`
                     showUpdateUI(info)
                 }
                 
@@ -77,7 +77,7 @@ if(!isDev){
             case 'realerror':
                 if(info != null && info.code != null){
                     if(info.code === 'ERR_UPDATER_INVALID_RELEASE_FEED'){
-                        loggerAutoUpdater.log('Подходящих выпусков не найдено.')
+                        loggerAutoUpdater.log('Подходящих релизов не найдено.')
                     } else if(info.code === 'ERR_XML_MISSED_ELEMENT'){
                         loggerAutoUpdater.log('Выпуски не найдены.')
                     } else {
@@ -135,7 +135,7 @@ $(function(){
 
 document.addEventListener('readystatechange', function () {
     if (document.readyState === 'interactive'){
-        loggerUICore.log('UICore Initializing..')
+        loggerUICore.log('UICore Инициализация..')
 
         // Bind close button.
         Array.from(document.getElementsByClassName('fCb')).map((val) => {
